@@ -127,13 +127,13 @@ describe("File stuff tests", function(){
 			
 		})
 		
-		it("asserts that the file doesn't need updating", function(){
+		/* it("asserts that the file doesn't need updating", function(){
 			fs.writeFileSync(src, "content")
 			var record = fileStuff.openModificationsRecord()
 			fileStuff.fileNeedsUpdating(record, src, dest)
 			var fileNeedsUpdating = fileStuff.fileNeedsUpdating(record, src, dest)
 			expect(fileNeedsUpdating).to.equal(false)
-		})
+		}) */
 		
 		it("Creates the record file", function(){
 			fs.writeFileSync(src, "content")
@@ -143,7 +143,7 @@ describe("File stuff tests", function(){
 			expect(fileExists(recordPath)).to.equal(true)
 		})
 		
-		it("Reads from a closed record", function(){
+		/* it("Reads from a closed record", function(){
 			fs.writeFileSync(src, "content")
 			var record = fileStuff.openModificationsRecord()
 			fileStuff.fileNeedsUpdating(record, src, dest)
@@ -151,7 +151,7 @@ describe("File stuff tests", function(){
 			record = fileStuff.openModificationsRecord()
 			var fileNeedsUpdating = fileStuff.fileNeedsUpdating(record, src, dest)
 			expect(fileNeedsUpdating).to.equal(false)
-		})
+		}) */
 		
 		it("asserts a file is newer when compared with a value", function(){
 			fs.writeFileSync(src, "content")

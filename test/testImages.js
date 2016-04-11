@@ -40,7 +40,7 @@ describe("Images tests", function(){
 
 	})	
 	
-	describe("FFMpeg is installed", function(){
+	/* describe("FFMpeg is installed", function(){
 	
 		var ffmpegError
 		
@@ -54,7 +54,7 @@ describe("Images tests", function(){
 		it("says that is is installed", function(){
 			expect(ffmpegError).to.equal(undefined)
 		})
-	})
+	}) */
 	
 	describe("Add size to path", function(){
 	

@@ -11,6 +11,25 @@
     "clearcache": "asset-mate.js --option clearcache",
     "new": "asset-mate.js --option new"
   },
+  "repository" : {
+	"type" : "git",
+	"url" : "https://github.com/Matteaocha/Asset-Mate.git"
+  },
+  "keywords" : [
+	"gulp",
+	"sass",
+	"aws",
+	"amazon",
+	"s3",
+	"es6",
+	"ecma6",
+	"assets",
+	"autogenerate",
+	"auto",
+	"process images",
+	"rewrite",
+	"autoprefix"
+	],  
   "author": "Matt Bilton <matteaocha@gmail.com>",
   "license": "MIT",
   "devDependencies": {
