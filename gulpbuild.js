@@ -1,5 +1,6 @@
+var path = require('path')
 var manifest = require(process.cwd() + '/gulp-manifest.json')
-var tasks = require(__dirname + '/lib/gulp-tasks.js')(manifest)
+var tasks = require(path.dirname(__filename) + '/lib/gulp-tasks.js')(manifest)
 var fs = require('fs')
 var argv = require('yargs').argv
 

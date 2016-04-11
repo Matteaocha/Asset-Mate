@@ -7,9 +7,7 @@
     "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "bin": {
-    "autogenerate": "asset-mate.js --option autogenerate",
-    "clearcache": "asset-mate.js --option clearcache",
-    "new": "asset-mate.js --option new"
+    "asset-mate": "asset-mate.js"
   },
   "repository" : {
 	"type" : "git",
