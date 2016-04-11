@@ -1,0 +1,71 @@
+[
+	{		
+		"name" : "packageName",
+		"src" : {
+			"directory" : "test/project/src",
+			"es6" : "js/*",
+			"js" : "",
+			"scss" : "scss/*",
+			"css" : "",
+			"images" : [
+				{
+					"glob": "images/1/*",
+					"sizes": {
+						"size" : "100%"
+					}								
+				},
+				{
+					"glob": "images/2/*",
+					"sizes": {
+						"size" : "50%"
+					}								
+				}
+			],			
+			"copy" : ["*"],			
+			"copyExclude" : ["images"]
+		},
+		"dest" : [
+			{
+				"name" : "dev",
+				"directory" : "test/project/dist_dev",
+				"minify" : false,
+				"rewrites" : { "REPLACE_ME" : "stuff" }
+			},
+			{
+				"name" : "prod",
+				"directory" : "test/project/dist",
+				"minify" : true,
+				"rewrites" : { "REPLACE_ME" : "yayyy" },
+				"s3Bucket" : "test",
+				"s3Prefix" : "prefix",
+				"awsCredentialsProfile" : "test"
+			}
+		]		
+	},
+	{		
+		"name" : "packageName",
+		"src" : {
+			"directory" : "test/project/src",
+			"es6" : "js/*",
+			"js" : "",
+			"scss" : "scss/*",
+			"css" : "",
+			"images" : {
+					"glob": ["images/1/*", "images/2/*"],
+					"sizes": {
+						"size" : "50%"
+					}								
+				},			
+			"copy" : [],			
+			"copyExclude" : []
+		},
+		"dest" : [
+			{
+				"name" : "dev",
+				"directory" : "test/project/dist_dev",
+				"minify" : false,
+				"rewrites" : { "REPLACE_ME" : "stuff" }
+			}
+		]		
+	}
+]

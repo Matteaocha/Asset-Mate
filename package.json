@@ -1,0 +1,32 @@
+{
+  "name": "asset-mate",
+  "version": "1.0.0",
+  "description": "Asset-Mate autogenerates a gulpfile based on a manifest, which enables you to easily compile, rewrite, copy, or deploy Javascript, ES6, SCSS, CSS and images",
+  "main": "gulp",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "bin": {
+    "autogenerate": "asset-mate.js --option autogenerate",
+    "clearcache": "asset-mate.js --option clearcache",
+    "new": "asset-mate.js --option new"
+  },
+  "author": "Matt Bilton <matteaocha@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "mime": "^1.3.4",
+    "mocha": "^2.4.5",
+    "rimraf": "^2.5.2",
+    "sinon": "^1.17.3"
+  },
+  "dependencies": {
+    "async": "^2.0.0-rc.2",
+    "aws-sdk": "^2.3.1",
+    "glob": "^7.0.3",
+    "gulp-util": "^3.0.7",
+    "image-size": "^0.5.0",
+    "mime": "^1.3.4",
+    "through2": "^2.0.1",
+    "yargs": "^4.3.2"
+  }
+}

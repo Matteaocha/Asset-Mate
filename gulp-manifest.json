@@ -1,0 +1,34 @@
+[
+	{		
+		"name" : "package1",
+		"src" : {
+			"directory" : "src",
+			"es6" : "es6/*.js",
+			"js" : "js/*.js",
+			"scss" : "scss/*.scss",
+			"css" : "css/*",
+			"images" : [
+							{
+							"glob" : "images/**",
+							"sizes" : {
+								"big" : "100%",
+								"med" : 0.5
+								}
+							}
+						],			
+			"copy" : "**",			
+			"copyExclude" : "excludes/*"
+		},
+		"dest" : [
+			{
+				"name" : "prod",
+				"directory" : "dist",
+				"minify" : true,
+				"rewrites" : { "REPLACE_ME" : "replacement" },
+				"s3Bucket" : "",
+				"s3Prefix" : "",
+				"awsCredentialsProfile" : "default"
+			}
+		]		
+	}
+]
