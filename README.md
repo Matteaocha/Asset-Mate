@@ -2,7 +2,7 @@
 Asset-Mate auto-generates a gulpfile based on a manifest, which enables you to easily compile, rewrite, copy, or deploy Javascript, ES6, SCSS, CSS and images
 
 ###How it works
-1) You fill in a manifest of your source tree assets, and desired destinations
+1) You fill in a manifest of your source-tree assets, and desired destinations
 
 2) It auto-generates a gulp file
 
@@ -59,61 +59,61 @@ Your gulp-manifest.json file for this use case might look as follows:
 
 ```
 [
-	{		
-		"name" : "my-app",
-		"src" : {
-			"directory" : "src",
-			"es6" : "js/*.js",
-			"js" : "other_file/js/*.js",
-			"scss" : "scss/*.scss",
-			"css" : "css/*",
-			"images" : [
-							{
-							"glob" : "images/**",
-							"sizes" : {
-								"big" : "100%",
-								"med" : 0.5
-								}
-							}
-						],			
-			"copy" : "**",			
-			"copyExclude" : ["folder_to_exclude1/*", "folder_to_exclude2/*"]
-		},
-		"dest" : [
-			{
-				"name" : "dev",
-				"directory" : "dist_dev",
-				"minify" : false,
-				"autoprefix" : true,
-				"rewrites" : { "ASSET_URL" : "dist_dev" },
-			},
-			{
-				"name" : "dist",
-				"directory" : "dist",
-				"minify" : true,
-				"autoprefix" : true,
-				"rewrites" : { "ASSET_URL" : "" },
-			},
-			{
-				"name" : "deploy",
-				"directory" : "deploy",
-				"minify" : true,
-				"autoprefix" : true,
-				"rewrites" : { "ASSET_URL" : "aws-cdn.com" },
-				"s3Bucket" : "my-bucket",
-				"s3Prefix" : "app-asset",
-				"awsCredentialsProfile" : "default"
-			}
-		]		
-	}
+    {		
+        "name" : "my-app",
+        "src" : {
+            "directory" : "src",
+            "es6" : "js/*.js",
+            "js" : "other_file/js/*.js",
+            "scss" : "scss/*.scss",
+            "css" : "css/*",
+            "images" : [
+                        {
+                        "glob" : "images/**",
+                        "sizes" : {
+                            "big" : "100%",
+                            "med" : 0.5
+                            }
+                        }
+                    ],			
+            "copy" : "**",			
+            "copyExclude" : ["folder_to_exclude1/*", "folder_to_exclude2/*"]
+        },
+        "dest" : [
+            {
+                "name" : "dev",
+                "directory" : "dist_dev",
+                "minify" : false,
+                "autoprefix" : true,
+                "rewrites" : { "ASSET_URL" : "dist_dev" },
+            },
+            {
+                "name" : "dist",
+                "directory" : "dist",
+                "minify" : true,
+                "autoprefix" : true,
+                "rewrites" : { "ASSET_URL" : "" },
+            },
+            {
+                "name" : "deploy",
+                "directory" : "deploy",
+                "minify" : true,
+                "autoprefix" : true,
+                "rewrites" : { "ASSET_URL" : "aws-cdn.com" },
+                "s3Bucket" : "my-bucket",
+                "s3Prefix" : "app-asset",
+                "awsCredentialsProfile" : "default"
+            }
+        ]		
+    }
 ]
 ```
 
 You can omit any of the keys that are not relevant to your project and it should still build ok.
 
-I've also used this example to demonstrate that the images list will understand you specifying your sizes as both percentages and fractions
+(Note: I've also used this example to demonstrate that the images list will understand you specifying your sizes as both percentages and fractions)
 
-As I've specified the copy glob as "**", when gulp runs it will copy and rewrite all files in the 'src' directory that don't match with those specified in the other globs, it will parse everything in the es6 glob using Babel and Browserify, it will resize my images and appended them with their size name (e.g. image_med.png), and it will compile and autoprefix any css.
+Since I've specified the copy glob as "**", when gulp runs it will copy and rewrite all files in the 'src' directory that don't match with those specified in the other globs, it will parse everything in the es6 glob using Babel and Browserify, it will resize my images and appended them with their size name (e.g. image_med.png), and it will compile and autoprefix any css.
 
 The results will vary as per the rules specified in each of the destinations
 
