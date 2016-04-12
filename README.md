@@ -119,7 +119,7 @@ The results will vary as per the rules specified in each of the destinations
 
 When I call 'gulp deploy' it will ignore the first two destinations (as they don't list any s3 information) any only deploy the files in the third.
 
-If I only want to watch or build to a single destination, the second for example, I can call 'gulp build --src src --dest dist' or 'gulp build --src 0 --dest 1'
+If I only want to watch or build to a single destination, the second for example, I can call 'gulp build --src my-app --dest dist' or 'gulp build --src 0 --dest 1'
 
 Also, any subsequent times I run the build command it 'should' check the source files against their destinations and an internal record and only copy those with changes (this might be a bit flakey though)
 
