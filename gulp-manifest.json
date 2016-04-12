@@ -24,6 +24,7 @@
 				"name" : "prod",
 				"directory" : "dist",
 				"minify" : true,
+				"autoprefix" : true,
 				"rewrites" : { "REPLACE_ME" : "replacement" },
 				"s3Bucket" : "",
 				"s3Prefix" : "",
