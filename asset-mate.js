@@ -36,8 +36,12 @@ else if(options.indexOf("new") !== -1) {
 
 function create() {
 	console.log("Generating gulp-manifest")
+	
+	var base = process.cwd().replace(/\\/g, '/')
+	if(base !== '') base += '/'
+	
 	var rs = fs.createReadStream(path.dirname(__filename) + '/gulp-manifest.json')
-	var ws = fs.createWriteStream(process.cwd() + '/gulp-manifest.json')
+	var ws = fs.createWriteStream(base + 'gulp-manifest.json')
 	rs.pipe(ws)
 	
 	console.log("Installing required packages... (this could take a minute or two)")
@@ -64,7 +68,10 @@ function clean() {
 	console.log("Clearing asset-mate cache")
 	
 	try{
-		fs.unlinkSync(path.dirname(__filename) + '/modificationsRecord.json')
+		var base = process.cwd().replace(/\\/g, '/')
+		if(base !== '') base += '/'
+		
+		fs.unlinkSync(base + 'node_modules/asset-mate/modificationsRecord.json')
 	}
 	catch(err) {
 		console.log("Nothing to clear")
