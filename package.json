@@ -1,6 +1,6 @@
 {
   "name": "asset-mate",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Asset-Mate autogenerates a gulpfile based on a manifest, which enables you to easily compile, rewrite, copy, or deploy Javascript, ES6, SCSS, CSS and images",
   "main": "gulp",
   "scripts": {
