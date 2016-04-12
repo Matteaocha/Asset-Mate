@@ -170,7 +170,9 @@ function buildGulpfile() {
 	}
 	
 	output += gulpfileFooter
-	fs.writeFileSync(process.cwd() + "/gulpfile.js", output)
+	var base = process.cwd()
+	if(base !== "") base += '/'
+	fs.writeFileSync(base + "gulpfile.js", output)
 }
 
 
