@@ -1,0 +1,124 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files (x86)\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'publish' ]
+2 info using npm@2.14.12
+3 info using node@v4.3.1
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: 'C:\\Users\\Matthew\\websites\\mynodemodules\\asset-mate',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory C:\Users\Matthew\AppData\Roaming\npm-cache\asset-mate\1.0.0\package.tgz not in flight; packing
+9 verbose tar pack [ 'C:\\Users\\Matthew\\AppData\\Roaming\\npm-cache\\asset-mate\\1.0.0\\package.tgz',
+9 verbose tar pack   'C:\\Users\\Matthew\\websites\\mynodemodules\\asset-mate' ]
+10 verbose tarball C:\Users\Matthew\AppData\Roaming\npm-cache\asset-mate\1.0.0\package.tgz
+11 verbose folder C:\Users\Matthew\websites\mynodemodules\asset-mate
+12 info prepublish asset-mate@1.0.0
+13 verbose addLocalTarball adding from inside cache C:\Users\Matthew\AppData\Roaming\npm-cache\asset-mate\1.0.0\package.tgz
+14 silly cache afterAdd asset-mate@1.0.0
+15 verbose afterAdd C:\Users\Matthew\AppData\Roaming\npm-cache\asset-mate\1.0.0\package\package.json not in flight; writing
+16 verbose afterAdd C:\Users\Matthew\AppData\Roaming\npm-cache\asset-mate\1.0.0\package\package.json written
+17 silly publish { name: 'asset-mate',
+17 silly publish   version: '1.0.0',
+17 silly publish   description: 'Asset-Mate autogenerates a gulpfile based on a manifest, which enables you to easily compile, rewrite, copy, or deploy Javascript, ES6, SCSS, CSS and images',
+17 silly publish   main: 'gulp',
+17 silly publish   scripts: { test: 'mocha --reporter spec' },
+17 silly publish   bin: { 'asset-mate': 'asset-mate.js' },
+17 silly publish   repository:
+17 silly publish    { type: 'git',
+17 silly publish      url: 'git+https://github.com/Matteaocha/Asset-Mate.git' },
+17 silly publish   keywords:
+17 silly publish    [ 'gulp',
+17 silly publish      'sass',
+17 silly publish      'aws',
+17 silly publish      'amazon',
+17 silly publish      's3',
+17 silly publish      'es6',
+17 silly publish      'ecma6',
+17 silly publish      'assets',
+17 silly publish      'autogenerate',
+17 silly publish      'auto',
+17 silly publish      'process images',
+17 silly publish      'rewrite',
+17 silly publish      'autoprefix' ],
+17 silly publish   author: { name: 'Matt Bilton', email: 'matteaocha@gmail.com' },
+17 silly publish   license: 'MIT',
+17 silly publish   devDependencies:
+17 silly publish    { mime: '^1.3.4',
+17 silly publish      mocha: '^2.4.5',
+17 silly publish      rimraf: '^2.5.2',
+17 silly publish      sinon: '^1.17.3' },
+17 silly publish   dependencies:
+17 silly publish    { async: '^2.0.0-rc.2',
+17 silly publish      'aws-sdk': '^2.3.1',
+17 silly publish      glob: '^7.0.3',
+17 silly publish      'gulp-util': '^3.0.7',
+17 silly publish      'image-size': '^0.5.0',
+17 silly publish      mime: '^1.3.4',
+17 silly publish      through2: '^2.0.1',
+17 silly publish      yargs: '^4.3.2' },
+17 silly publish   readme: '# Asset-Mate\r\nAsset-Mate auto-generates a gulpfile based on a manifest, which enables you to easily compile, rewrite, copy, or deploy Javascript, ES6, SCSS, CSS and images\r\n\r\n###How it works\r\n1) You fill in a manifest of your source tree assets, and desired destinations\r\n\r\n2) It auto-generates a gulp file\r\n\r\n3) Call \'watch\', or \'build\' with gulp to have it make your output assets\r\n\r\n4) Call \'deploy\' with gulp to have it deployed to an AWS S3 bucket\r\n\r\n###What it can do\r\n- Compile ES6 files\r\n- Compile SASS files\r\n- Minify ES6 or Javascript files\r\n- Autoprefix CSS files (automatic cross-browser support)\r\n- Do find and replace (rewrites) on all text files\r\n- Create multiple output sizes of images\r\n- Simple copying of files\r\n- Deploy to an S3 bucket\r\n- Keeps an internal list of files (so that you don\'t copy everything every time)\r\n\r\n###Requirements\r\n- Node and NPM\r\n- Ffmpeg (If you want to resize images)\r\n\r\n###Installation\r\n1) npm install -g asset-mate\r\n\r\n2) cd to the root of your project directory\r\n\r\n3) asset-mate new\r\n\r\n###Commands\r\n- asset-mate new\r\n- asset-mate autogenerate\r\n- asset-mate clearcache\r\n- gulp (build | deploy | watch)\r\n- gulp (build | deploy | watch) [--src 0] [ --dest 0]\r\n- gulp (build | deploy | watch) [--src src_name] [ --dest dest_name]\r\n\r\n###Usage\r\nWhen you call \'asset-mate new\' it installs gulp and the dependencies you need to run the gulp file, and adds a \'gulp-manifest.json\' file to the root of your project.\r\n\r\n\'gulp-manifest.json\' will start with an example structure that you can fill in with the details of your own project. You can have multiple sources and multiple destinations, and it understands arrayed and glob format descriptions of your files.\r\nOnce you\'ve finished describing your manifest, call \'asset-mate autogenerate\'. This will build your gulp file for you. Then use the commands \'gulp build\' or \'gulp watch\' to have it produce your assets.\r\n\r\nIf you specify \'s3Bucket\' and \'awsCredentialsProfile\' in a destination in your manifest, calling \'gulp deploy\' will use that information to automatically upload your files to the given S3 bucket. You can also specify an \'s3Prefix\' if you would like the files in that destination prefixed in the bucket.\r\n\r\n###Example\r\nA common example case is when you have a source directory that you would like compiled into three formats:\r\n\r\n- A local \'dev\' folder in which sources are not minified\r\n- A local \'dist\' folder in which sources are minified\r\n- A \'deploy\' folder in which sources are both minified and any urls in those files point to S3 or CDN addresses\r\n\r\nYour gulp-manifest.json file for this use case might look as follows:\r\n\r\n```\r\n[\r\n\t{\t\t\r\n\t\t"name" : "my-app",\r\n\t\t"src" : {\r\n\t\t\t"directory" : "src",\r\n\t\t\t"es6" : "js/*.js",\r\n\t\t\t"js" : "other_file/js/*.js",\r\n\t\t\t"scss" : "scss/*.scss",\r\n\t\t\t"css" : "css/*",\r\n\t\t\t"images" : [\r\n\t\t\t\t\t\t\t{\r\n\t\t\t\t\t\t\t"glob" : "images/**",\r\n\t\t\t\t\t\t\t"sizes" : {\r\n\t\t\t\t\t\t\t\t"big" : "100%",\r\n\t\t\t\t\t\t\t\t"med" : 0.5\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t],\t\t\t\r\n\t\t\t"copy" : "**",\t\t\t\r\n\t\t\t"copyExclude" : ["folder_to_exclude1/*", "folder_to_exclude2/*"]\r\n\t\t},\r\n\t\t"dest" : [\r\n\t\t\t{\r\n\t\t\t\t"name" : "dev",\r\n\t\t\t\t"directory" : "dist_dev",\r\n\t\t\t\t"minify" : false,\r\n\t\t\t\t"autoprefix" : true,\r\n\t\t\t\t"rewrites" : { "ASSET_URL" : "dist_dev" },\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t"name" : "dist",\r\n\t\t\t\t"directory" : "dist",\r\n\t\t\t\t"minify" : true,\r\n\t\t\t\t"autoprefix" : true,\r\n\t\t\t\t"rewrites" : { "ASSET_URL" : "" },\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t"name" : "deploy",\r\n\t\t\t\t"directory" : "deploy",\r\n\t\t\t\t"minify" : true,\r\n\t\t\t\t"autoprefix" : true,\r\n\t\t\t\t"rewrites" : { "ASSET_URL" : "aws-cdn.com" },\r\n\t\t\t\t"s3Bucket" : "my-bucket",\r\n\t\t\t\t"s3Prefix" : "app-asset",\r\n\t\t\t\t"awsCredentialsProfile" : "default"\r\n\t\t\t}\r\n\t\t]\t\t\r\n\t}\r\n]\r\n```\r\n\r\nYou can omit any of the keys that are not relevant to your project and it should still build ok.\r\n\r\nI\'ve also used this example to demonstrate that the images list will understand you specifying your sizes as both percentages and fractions\r\n\r\nAs I\'ve specified the copy glob as "**", when gulp runs it will copy and rewrite all files in the \'src\' directory that don\'t match with those specified in the other globs, it will parse everything in the es6 glob using Babel and Browserify, it will resize my images and appended them with their size name (e.g. image_med.png), and it will compile and autoprefix any css.\r\n\r\nThe results will vary as per the rules specified in each of the destinations\r\n\r\nWhen I call \'gulp deploy\' it will ignore the first two destinations (as they don\'t list any s3 information) any only deploy the files in the third.\r\n\r\nIf I only want to watch or build to a single destination, the second for example, I can call \'gulp build --src src --dest dist\' or \'gulp build --src 0 --dest 1\'\r\n\r\nAlso, any subsequent times I run the build command it \'should\' check the source files against their destinations and an internal record and only copy those with changes (this might be a bit flakey though)\r\n\r\nOh and! Subsequent deploys should also upload only the files that have changed\r\n\r\n',
+17 silly publish   readmeFilename: 'README.md',
+17 silly publish   gitHead: '0ad1a49123fc01004e6b3238462f0691f6f0c1e3',
+17 silly publish   bugs: { url: 'https://github.com/Matteaocha/Asset-Mate/issues' },
+17 silly publish   homepage: 'https://github.com/Matteaocha/Asset-Mate#readme',
+17 silly publish   _id: 'asset-mate@1.0.0',
+17 silly publish   _shasum: '0a6c9ddd98dd07836c5b146a42bc55e150657ce2',
+17 silly publish   _from: '.' }
+18 verbose getPublishConfig undefined
+19 silly mapToRegistry name asset-mate
+20 silly mapToRegistry using default registry
+21 silly mapToRegistry registry https://registry.npmjs.org/
+22 silly mapToRegistry uri https://registry.npmjs.org/asset-mate
+23 verbose publish registryBase https://registry.npmjs.org/
+24 silly publish uploading C:\Users\Matthew\AppData\Roaming\npm-cache\asset-mate\1.0.0\package.tgz
+25 verbose request uri https://registry.npmjs.org/asset-mate
+26 verbose request sending authorization for write operation
+27 info attempt registry request try #1 at 1:23:45 AM
+28 verbose request using bearer token for auth
+29 verbose request id 4062fed59db5e0d7
+30 http request PUT https://registry.npmjs.org/asset-mate
+31 http 403 https://registry.npmjs.org/asset-mate
+32 verbose headers { 'content-type': 'application/json',
+32 verbose headers   'cache-control': 'max-age=300',
+32 verbose headers   'content-length': '95',
+32 verbose headers   'accept-ranges': 'bytes',
+32 verbose headers   date: 'Tue, 12 Apr 2016 00:23:55 GMT',
+32 verbose headers   via: '1.1 varnish',
+32 verbose headers   connection: 'keep-alive',
+32 verbose headers   'x-served-by': 'cache-lcy1126-LCY',
+32 verbose headers   'x-cache': 'MISS',
+32 verbose headers   'x-cache-hits': '0',
+32 verbose headers   'x-timer': 'S1460420626.391600,VS0,VE8656',
+32 verbose headers   vary: 'Accept-Encoding' }
+33 verbose request invalidating C:\Users\Matthew\AppData\Roaming\npm-cache\registry.npmjs.org\asset-mate on PUT
+34 error publish Failed PUT 403
+35 verbose stack Error: "You cannot publish over the previously published version 1.0.0." : asset-mate
+35 verbose stack     at makeError (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:264:12)
+35 verbose stack     at CachingRegistryClient.<anonymous> (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:252:14)
+35 verbose stack     at Request._callback (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:172:14)
+35 verbose stack     at Request.self.callback (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\request\request.js:198:22)
+35 verbose stack     at emitTwo (events.js:87:13)
+35 verbose stack     at Request.emit (events.js:172:7)
+35 verbose stack     at Request.<anonymous> (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\request\request.js:1082:10)
+35 verbose stack     at emitOne (events.js:82:20)
+35 verbose stack     at Request.emit (events.js:169:7)
+35 verbose stack     at IncomingMessage.<anonymous> (C:\Program Files (x86)\nodejs\node_modules\npm\node_modules\request\request.js:1009:12)
+36 verbose statusCode 403
+37 verbose pkgid asset-mate
+38 verbose cwd C:\Users\Matthew\websites\mynodemodules\asset-mate
+39 error Windows_NT 6.3.9600
+40 error argv "C:\\Program Files (x86)\\nodejs\\node.exe" "C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "publish"
+41 error node v4.3.1
+42 error npm  v2.14.12
+43 error code E403
+44 error "You cannot publish over the previously published version 1.0.0." : asset-mate
+45 error If you need help, you may report this error at:
+45 error     <https://github.com/npm/npm/issues>
+46 verbose exit [ 1, true ]
