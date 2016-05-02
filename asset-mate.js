@@ -49,7 +49,7 @@ function create() {
 	exec("npm install -g gulp", function(){
 		exec("npm install --save-dev gulp browserify asset-mate", function(){
 			exec("npm install --save-dev babelify vinyl-buffer vinyl-source-stream gulp-uglify gulp-sass gulp-autoprefixer gulp-rename gulp-util", function(){
-				exec("npm install --save-dev glob babel-preset-es2015 async aws-sdk image-size mime yargs through2", function(){
+				exec("npm install --save-dev glob babel-preset-es2015 babel-preset-react async aws-sdk image-size mime yargs through2", function(){
 					console.log("PACKAGES INSTALLED")
 				})
 			})

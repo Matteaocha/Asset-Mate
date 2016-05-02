@@ -1,7 +1,7 @@
 {
   "name": "asset-mate",
-  "version": "1.0.13",
-  "description": "Asset-Mate autogenerates a gulpfile based on a manifest, which enables you to easily compile, rewrite, copy, or deploy Javascript, ES6, SCSS, CSS and images",
+  "version": "1.0.14",
+  "description": "Asset-Mate autogenerates a gulpfile based on a manifest, which enables you to easily compile, rewrite, copy, or deploy Javascript, ES6 & React, SCSS, CSS and images",
   "main": "gulp",
   "scripts": {
     "test": "./node_modules/.bin/mocha --reporter spec"
@@ -15,6 +15,8 @@
   },
   "keywords" : [
 	"gulp",
+  "babel",
+  "react",
 	"sass",
 	"aws",
 	"amazon",
