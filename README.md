@@ -4,6 +4,7 @@ Asset-Mate auto-generates a gulpfile based on a manifest, which enables you to e
 UPDATES: 
 1) The babel es6 transformer now handles React too
 2) Calling watch on gulp now watches all files in directories alongside js/scss/css globs
+3) You can now specify an 's3CacheControl' option to set the default cache-control header on all the assets
 
 ###How it works
 1) You fill in a manifest of your source-tree assets, and desired destinations
@@ -106,6 +107,7 @@ Your gulp-manifest.json file for this use case might look as follows:
                 "rewrites" : { "ASSET_URL" : "aws-cdn.com" },
                 "s3Bucket" : "my-bucket",
                 "s3Prefix" : "app-asset",
+                "s3CacheControl" : "max-age=86400",
                 "awsCredentialsProfile" : "default"
             }
         ]		

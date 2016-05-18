@@ -28,6 +28,7 @@
                 "rewrites" : { "REPLACE_ME" : "replacement" },
                 "s3Bucket" : "",
                 "s3Prefix" : "",
+                "s3CacheControl" : "max-age=86400",
                 "awsCredentialsProfile" : "default"
             }
         ]		
