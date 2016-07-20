@@ -10,16 +10,6 @@ var async = require('async')
 var fileStuff = require('../lib/fileStuff.js')()
 var rewrite = require('../lib/rewrite.js')()
 
-
-var copyDeps = {
-	glob 			: glob,
-	fs				: fs,
-	path 			: path,
-	fileStuff 		: fileStuff,
-	async			: async,
-	rewrite			: rewrite
-}
-
 var manifest = require('./project/gulp-manifest.json')
 
 var copy = require('../lib/copy.js')(manifest, copyDeps)
