@@ -6,6 +6,7 @@ var path = require('path')
 var exec = require('child_process').exec
 
 var gulpbuild
+var manifest
 
 
 module.exports = {
@@ -18,11 +19,12 @@ var options = argv._
 //---------------------------------------------------------
 
 if(options.indexOf("autogenerate") !== -1) {
-	gulpbuild = require(__dirname + "/lib/gulpfile-build.js")()
-	autogenerate()
+	gulpbuild = require(__dirname + "/lib/gulpfile.js")
+	manifest = require(process.cwd() + '/gulp-manifest.json')
+	autogenerate(manifest)
 }
 else if(options.indexOf("clearcache") !== -1) {
-	gulpbuild = require(__dirname + "/lib/gulpfile-build.js")()
+	gulpbuild = require(__dirname + "/lib/gulpfile.js")
 	clean()
 }
 else if(options.indexOf("new") !== -1) {
@@ -55,9 +57,9 @@ function create() {
 		
 }
 
-function autogenerate() {
+function autogenerate (manifest) {
 	console.log("Autogenerating gulpfile")
-	gulpbuild.buildGulpfile()
+	gulpbuild.buildGulpfile(manifest)
 }
 
 
