@@ -18,11 +18,11 @@ var options = argv._
 //---------------------------------------------------------
 
 if(options.indexOf("autogenerate") !== -1) {
-	gulpbuild = require(__dirname + "/gulpbuild.js")()
+	gulpbuild = require(__dirname + "/lib/gulpfile-build.js")()
 	autogenerate()
 }
 else if(options.indexOf("clearcache") !== -1) {
-	gulpbuild = require(__dirname + "/gulpbuild.js")()
+	gulpbuild = require(__dirname + "/lib/gulpfile-build.js")()
 	clean()
 }
 else if(options.indexOf("new") !== -1) {
