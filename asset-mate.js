@@ -7,13 +7,10 @@ var exec = require('child_process').exec
 
 var gulpbuild
 
-var exports = {
+
+module.exports = {
 	autogenerate : autogenerate,
 	clean	: clean
-}
-
-module.exports = function(){
-	return exports
 }
 
 var options = argv._
