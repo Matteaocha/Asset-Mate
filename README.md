@@ -6,7 +6,8 @@ UPDATES:
 2) Calling watch on gulp now watches all files in directories alongside js/scss/css globs
 3) You can now specify an 's3CacheControl' option to set the default cache-control header on all the assets
 
-###How it works
+### How it works
+
 1) You fill in a manifest of your source-tree assets, and desired destinations
 
 2) It auto-generates a gulp file
@@ -15,7 +16,8 @@ UPDATES:
 
 4) Call 'deploy' with gulp to have it deployed to an AWS S3 bucket
 
-###What it can do
+### What it can do
+
 - Compile ES6 files
 - Compile SASS files
 - Minify ES6 or Javascript files
@@ -26,18 +28,21 @@ UPDATES:
 - Deploy to an S3 bucket
 - Keeps an internal list of files (so that you don't copy everything every time)
 
-###Requirements
+### Requirements
+
 - Node and NPM
 - Ffmpeg (If you want to resize images)
 
-###Installation
+### Installation
+
 1) npm install -g asset-mate
 
 2) cd to the root of your project directory
 
 3) asset-mate new
 
-###Commands
+### Commands
+
 - asset-mate new
 - asset-mate autogenerate
 - asset-mate clearcache
@@ -45,7 +50,8 @@ UPDATES:
 - gulp (build | deploy | watch) [--src 0] [ --dest 0]
 - gulp (build | deploy | watch) [--src src_name] [ --dest dest_name]
 
-###Usage
+### Usage
+
 When you call 'asset-mate new' it installs gulp and the dependencies you need to run the gulp file, and adds a 'gulp-manifest.json' file to the root of your project.
 
 'gulp-manifest.json' will start with an example structure that you can fill in with the details of your own project. You can have multiple sources and multiple destinations, and it understands arrayed and glob format descriptions of your files.
@@ -53,7 +59,8 @@ Once you've finished describing your manifest, call 'asset-mate autogenerate'. T
 
 If you specify 's3Bucket' and 'awsCredentialsProfile' in a destination in your manifest, calling 'gulp deploy' will use that information to automatically upload your files to the given S3 bucket. You can also specify an 's3Prefix' if you would like the files in that destination prefixed in the bucket.
 
-###Example
+### Example
+
 A common example case is when you have a source directory that you would like compiled into three formats:
 
 - A local 'dev' folder in which sources are not minified
