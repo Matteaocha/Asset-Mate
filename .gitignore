@@ -3,3 +3,4 @@ modificationsRecord.json
 test/project/dist/*
 test/project/dist_dev/*
 test/project/dist_dev
+npm-debug.log

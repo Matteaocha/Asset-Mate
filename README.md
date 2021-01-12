@@ -1,4 +1,7 @@
 # Asset-Mate
+
+**(Warning: This package is no longer being actively maintained)**
+
 Asset-Mate auto-generates a gulpfile based on a manifest, which enables you to easily compile, rewrite, copy, or deploy Javascript, ES6 and React with Browserify, SCSS, CSS and images
 
 UPDATES: 
